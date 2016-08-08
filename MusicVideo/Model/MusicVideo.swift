@@ -23,7 +23,7 @@ class Videos {
     
     
     var vImageData:NSData?
-    
+     
     
     var vName: String{
         return _vName

@@ -17,16 +17,22 @@ class ViewController: UIViewController {
         api.loadData("https://itunes.apple.com/in/rss/topmusicvideos/limit=10/json", completion: didloadData)
     }
 
-    func didloadData(result:String){
+    func didloadData(videos: [Videos] ){
         
-        let alert = UIAlertController(title: "Result", message: result, preferredStyle: .Alert)
+        for item in videos {
+            print("\(item.vName)")
+        }
         
-        let OkButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    
         
-        alert.addAction(OkButton)
-        
-        self.presentViewController(alert, animated: true, completion: nil)
-        print(result)
+//        let alert = UIAlertController(title: "Result", message: result, preferredStyle: .Alert)
+//        
+//        let OkButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//        
+//        alert.addAction(OkButton)
+//        
+//        self.presentViewController(alert, animated: true, completion: nil)
+//        print(result)
     }
 
 

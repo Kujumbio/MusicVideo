@@ -11,7 +11,7 @@ import Foundation
 
 class APIManager {
     
-    func loadData(urlstring:String,completion:(result:String) -> Void){
+    func loadData(urlstring:String,completion:([Videos]) -> Void){
         
         let config = NSURLSessionConfiguration.ephemeralSessionConfiguration()
         
@@ -24,31 +24,33 @@ class APIManager {
             (data,response,error) -> Void in
             
             if error != nil{
-                dispatch_async(dispatch_get_main_queue(), { 
-                    completion(result: error!.localizedDescription)
-                })
+                print(error!.localizedDescription)
             }
             else{
                
                 do{
                     
-                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? JSONDictonary{
+                     if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? JSONDictonary,feed = json["feed"] as? JSONDictonary,entries = feed["entry"] as?JSONArray {
                         
-                        print(json)
+                        var video = [Videos]()
+                        
+                        for entrie in entries {
+                            let entry = Videos(data: entrie as! JSONDictonary)
+                            video.append(entry)
+                        }
+                        
                         
                         let priority = DISPATCH_QUEUE_PRIORITY_HIGH
                         
                         dispatch_async(dispatch_get_global_queue(priority, 0), { 
                             dispatch_async(dispatch_get_main_queue(), { 
-                                completion(result: "Json Success")
+                                completion(video)
                             })
                         })
                     }
                     
                 }catch{
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        completion(result: "Error in JsonSerialization")
-                    })
+                    print("Error in JsonSerialization")
                 }
                 
                 
