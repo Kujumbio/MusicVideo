@@ -11,3 +11,9 @@ import Foundation
 typealias JSONDictonary = [String:AnyObject]
 
 typealias JSONArray =   Array<AnyObject>
+
+let WIFI = "WIFI Avaliable"
+
+let NOACCESS = "No Internet Access"
+
+let WWAN = "Cellular Data"

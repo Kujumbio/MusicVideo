@@ -17,6 +17,7 @@
 		301FA4E61D4E67A200918C8D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301FA4E51D4E67A200918C8D /* APIManager.swift */; };
 		302310E51D5763D200A4B59A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302310E41D5763D200A4B59A /* Constants.swift */; };
 		302310E71D57652000A4B59A /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302310E61D57652000A4B59A /* MusicVideo.swift */; };
+		305DA3741D5A200200EB8262 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 305DA3731D5A200200EB8262 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,9 @@
 		301FA4E51D4E67A200918C8D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		302310E41D5763D200A4B59A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utlis/Constants.swift; sourceTree = "<group>"; };
 		302310E61D57652000A4B59A /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicVideo.swift; path = Model/MusicVideo.swift; sourceTree = "<group>"; };
+		305DA3711D5A200100EB8262 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
+		305DA3721D5A200200EB8262 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		305DA3731D5A200200EB8262 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		301FA4B21D4E463E00918C8D /* MusicVideo */ = {
 			isa = PBXGroup;
 			children = (
+				30DD265D1D58F6B500582EFE /* Obj-C */,
 				302310E31D5763A400A4B59A /* Utils */,
 				301FA4E41D4E54F900918C8D /* Supporting Files */,
 				301FA4E11D4E54BE00918C8D /* Model */,
@@ -172,6 +177,16 @@
 				302310E41D5763D200A4B59A /* Constants.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		30DD265D1D58F6B500582EFE /* Obj-C */ = {
+			isa = PBXGroup;
+			children = (
+				305DA3721D5A200200EB8262 /* Reachability.h */,
+				305DA3731D5A200200EB8262 /* Reachability.m */,
+				305DA3711D5A200100EB8262 /* MusicVideo-Bridging-Header.h */,
+			);
+			name = "Obj-C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +327,7 @@
 				301FA4B61D4E463E00918C8D /* ViewController.swift in Sources */,
 				302310E71D57652000A4B59A /* MusicVideo.swift in Sources */,
 				301FA4B41D4E463E00918C8D /* AppDelegate.swift in Sources */,
+				305DA3741D5A200200EB8262 /* Reachability.m in Sources */,
 				302310E51D5763D200A4B59A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,10 +472,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -467,10 +486,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
 			};
 			name = Release;
 		};
