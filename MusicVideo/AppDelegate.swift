@@ -31,12 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func reachabilityChanged(Notifier:NSNotification){
         
         reachability = Notifier.object as? Reachability
-        statusChnagedwithrechability(reachability!)
+        statusChangedwithrechability(reachability!)
         
     }
     
-    func statusChnagedwithrechability(CurrentreachibilityStatus:Reachability){
-        let networkstatus = CurrentreachibilityStatus.currentReachabilityStatus()
+    func statusChangedwithrechability(CurrentreachibilityStatus:Reachability){
+        
+        let networkstatus : NetworkStatus = CurrentreachibilityStatus.currentReachabilityStatus()
         
         switch networkstatus.rawValue {
         case NotReachable.rawValue:reachabilitystatus = NOACCESS
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatus Changed", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
     }
     
     func applicationWillResignActive(application: UIApplication) {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULR-J3-Qzs">
+                                <rect key="frame" x="20" y="289" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ULR-J3-Qzs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2L1-Op-neQ"/>
+                            <constraint firstItem="ULR-J3-Qzs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="269" id="F2I-zN-0CR"/>
+                            <constraint firstItem="ULR-J3-Qzs" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RMs-er-jWb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ULR-J3-Qzs" secondAttribute="bottom" constant="281" id="b1d-5v-8CU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="DisplayLabel" destination="ULR-J3-Qzs" id="9md-Sm-ZQp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="368" y="226"/>
         </scene>
     </scenes>
 </document>
