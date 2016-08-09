@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     }
 
     func didloadData(videos: [Videos] ){
+        print(reachabilitystatus)
         
         for item in videos {
             print("\(item.vName)")
